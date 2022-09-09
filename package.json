@@ -1,0 +1,22 @@
+{
+  "name": "src",
+  "version": "1.0.1",
+  "description": "system de gestion de ventes des produits pharmaceutique",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Innocent-Akim/api_pharmacie.git"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "Akim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Innocent-Akim/api_pharmacie/issues"
+  },
+  "homepage": "https://github.com/Innocent-Akim/api_pharmacie#readme"
+}

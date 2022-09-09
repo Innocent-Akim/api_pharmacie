@@ -23,7 +23,7 @@ export default (sequelize, DataTypes) => {
     codeAgence:{
         type: DataTypes.INTEGER,
         allowNull: true,
-    }
+    },
   });
   return Operations;
 };

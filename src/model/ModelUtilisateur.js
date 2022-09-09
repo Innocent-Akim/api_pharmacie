@@ -1,25 +1,26 @@
 export default (sequelize, DataTypes) => {
-  const Comptes = sequelize.define("Comptes", {
+  const Utilisateurs = sequelize.define("Utilisateurs", {
     code: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    designation: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    numero: {
+    username: {
       type: DataTypes.STRING,
     },
-    codeCatecompte:{
-        type: DataTypes.INTEGER,
-        allowNull: false,
+    password: {
+      type: DataTypes.STRING,
+    },
+    status: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
     },
     refAgence: {
       type: DataTypes.INTEGER,
-      allowNull: false, 
+    },
+    codeAgent: {
+      type: DataTypes.INTEGER,
     },
   });
-  return Comptes;
+  return Utilisateurs;
 };

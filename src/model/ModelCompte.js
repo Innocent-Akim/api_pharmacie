@@ -15,10 +15,18 @@ export default (sequelize, DataTypes) => {
     codeCatecompte:{
         type: DataTypes.INTEGER,
         allowNull: false,
+        references : {
+          model : "cateComptes",
+          key : "code"
+      },
     },
     refAgence: {
       type: DataTypes.INTEGER,
-      allowNull: false, 
+      allowNull: false,
+      references : {
+        model : "entreprises",
+        key : "code"
+    }, 
     },
   });
   return Comptes;

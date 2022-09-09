@@ -7,10 +7,18 @@ export default (sequelize, DataTypes) => {
         },
         codeFournisseur:{
             type:DataTypes.INTEGER,
+            references : {
+                model : "fournisseurs",
+                key : "code"
+            },
         },
         refAgence:{
             type:DataTypes.INTEGER,
             allowNull:true,
+            references : {
+                model : "entreprises",
+                key : "code"
+            },
         }
     });
     return EnteteFournir;

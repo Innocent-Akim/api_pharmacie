@@ -11,6 +11,10 @@ export default (sequelize, DataTypes) => {
         },
         refAgence:{
             type:DataTypes.INTEGER,
+            references : {
+                model : "entreprises",
+                key : "code"
+            },
         }
     });
     return CateCompte; 

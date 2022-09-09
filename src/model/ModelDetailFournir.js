@@ -25,10 +25,18 @@ export default (sequelize, DataTypes) => {
     codeEnteteFournir:{
         type: DataTypes.INTEGER,
         allowNull: true,
+        references : {
+          model : "enteteFournirs",
+          key : "code"
+      },
     },
     codeProduit: {
       type: DataTypes.INTEGER,
       allowNull: true,
+      references : {
+        model : "produits",
+        key : "code"
+    },
     },
   });
   return DetailFournir;

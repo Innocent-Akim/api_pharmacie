@@ -19,10 +19,17 @@ export default (sequelize, DataTypes) => {
     },
     codeAgent: {
       type: DataTypes.INTEGER,
+      references : {
+        model : "agents",
+        key : "code"
+    },
     },
     codeAgence:{
         type: DataTypes.INTEGER,
-        allowNull: true,
+        references : {
+          model : "entreprises",
+          key : "code"
+      },
     },
   });
   return Operations;

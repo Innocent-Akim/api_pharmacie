@@ -33,6 +33,7 @@ db.tauxs=init.taux(sequelize,DataTypes);
 db.stocks=init.stock(sequelize,DataTypes);
 db.paiment=init.paiement(sequelize,DataTypes);
 
+
 db.sequelize.sync({ force: true }).then(() => {
     console.log(`Yes re-sync done!`)
   }).catch((error) => {

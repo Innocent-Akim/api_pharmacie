@@ -16,6 +16,10 @@ export default (sequelize, DataTypes) => {
     refAgence: {
       type: DataTypes.STRING,
       allowNull: true,
+      references: {
+        model: "entreprises",
+        key: "code",
+      },
     },
   });
   return Agent;

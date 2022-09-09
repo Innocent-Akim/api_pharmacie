@@ -11,6 +11,10 @@ export default (sequelize, DataTypes) => {
     },
     codeFacture: {
       type: DataTypes.INTEGER,
+      references : {
+        model : "enteteFactures",
+        key : "code"
+    },
     },
   });
   return Paiement;

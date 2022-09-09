@@ -11,12 +11,24 @@ export default (sequelize, DataTypes) => {
     },
     codeAgent: {
       type: DataTypes.INTEGER,
+      references : {
+        model : "agents",
+        key : "code"
+    },
     },
     codeClient: {
       type: DataTypes.INTEGER,
+      references : {
+        model : "clients",
+        key : "code"
+    },
     },
     refAgence:{
         type: DataTypes.INTEGER,
+        references : {
+            model : "entreprises",
+            key : "code"
+        },
     },
     timestamp: true,
   });

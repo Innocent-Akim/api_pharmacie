@@ -11,6 +11,10 @@ export default (sequelize, DataTypes) => {
     },
     codeProduit: {
       type: DataTypes.INTEGER,
+      references : {
+        model : "produits",
+        key : "code"
+    },
     },
   });
   return Stocks;

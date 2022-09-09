@@ -16,10 +16,18 @@ export default (sequelize, DataTypes) => {
     codeFacture: {
       type: DataTypes.INTEGER,
       allowNull: true,
+      references: {
+        model: "produits",
+        key: "code",
+      },
     },
     codeProduit: {
       type: DataTypes.INTEGER,
       allowNull: true,
+      references: {
+        model: "produits",
+        key: "code",
+      },
     },
     timestamp: true,
   });

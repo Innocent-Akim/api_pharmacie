@@ -14,6 +14,10 @@ export default (sequelize, DataTypes) => {
     },
     codeAgence: {
       type: DataTypes.INTEGER,
+      references : {
+        model : "entreprises",
+        key : "code"
+    },
     },
   });
   return Fournisseur;

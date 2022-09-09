@@ -14,8 +14,12 @@ export default (sequelize, DataTypes) => {
     qtealert: {
       type: DataTypes.FLOAT,
     },
-    refEntreprise: {
+    refAgence: {
       type: DataTypes.STRING,
+      references : {
+        model : "entreprises",
+        key : "code"
+    },
     },
   });
   return Produit;

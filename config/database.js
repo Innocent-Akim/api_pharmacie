@@ -1,4 +1,6 @@
-require("dotenv").config();
+import dotenv from "dotenv";
+dotenv.config();
+
 const {
   DEV_DB_USERNAME,
   DEV_DB_PASSWORD,

@@ -3,7 +3,7 @@ import client from "./ModelClient.js";
 import user from "./ModelUtilisateur.js";
 import compte from "./ModelCompte.js";
 import cateCompte from "./ModelCateCompte.js";
-import categories from "./ModelCategorie.js";
+import categorie from "./ModelCategorie.js";
 import detailFournir from "./ModelDetailFournir.js";
 import enteteFournir from "./ModelEnteteFournir.js";
 import enteteFacture from "./ModelEnteteFacture.js";
@@ -21,7 +21,7 @@ export default {
   user,
   compte,
   cateCompte,
-  categories,
+  categorie,
   detailFacture,
   detailFournir,
   enteteFacture,

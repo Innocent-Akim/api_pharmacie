@@ -19,8 +19,25 @@ db.entreprise=init.entreprises(sequelize,DataTypes);
 db.agents=init.agent(sequelize,DataTypes);
 db.clients=init.client(sequelize,DataTypes);
 db.categories=init.categorie(sequelize,DataTypes);
+db.fournisseurs=init.fournisseur(sequelize,DataTypes);
 db.users=init.user(sequelize,DataTypes);
-db.
+db.cateCompte=init.cateCompte(sequelize,DataTypes);
+db.produits=init.produit(sequelize,DataTypes);
+db.comptes=init.compte(sequelize,DataTypes);
+db.enteteFactures=init.enteteFacture(sequelize,DataTypes);
+db.detailFactures=init.detailFacture(sequelize,DataTypes);
+db.enteteFournirs=init.enteteFournir(sequelize,DataTypes);
+db.detailFournirs=init.detailFournir(sequelize,DataTypes);
+db.operation=init.operations(sequelize,DataTypes);
+db.tauxs=init.taux(sequelize,DataTypes);
+db.stocks=init.stock(sequelize,DataTypes);
+db.paiment=init.paiement(sequelize,DataTypes);
+
+db.sequelize.sync({ force: true }).then(() => {
+    console.log(`Yes re-sync done!`)
+  }).catch((error) => {
+    console.log(`Failed re-sync error  ${error}`)
+  })
 
 
 

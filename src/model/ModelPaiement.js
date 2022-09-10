@@ -12,7 +12,7 @@ export default (sequelize, DataTypes) => {
     codeFacture: {
       type: DataTypes.INTEGER,
       references : {
-        model : "enteteFactures",
+        model : "EnteteFactures",
         key : "code"
     },
     },

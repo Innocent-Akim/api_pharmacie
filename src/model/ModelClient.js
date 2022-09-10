@@ -16,7 +16,7 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: true,
       references : {
-        model : "entreprises",
+        model : "Entreprises",
         key : "code"
     },
     },

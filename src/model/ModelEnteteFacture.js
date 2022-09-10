@@ -4,6 +4,7 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: true,
+      autoIncrement: true
     },
     montant:{
         type: DataTypes.FLOAT,
@@ -12,25 +13,25 @@ export default (sequelize, DataTypes) => {
     codeAgent: {
       type: DataTypes.INTEGER,
       references : {
-        model : "agents",
+        model : "Agents",
         key : "code"
     },
     },
     codeClient: {
       type: DataTypes.INTEGER,
       references : {
-        model : "clients",
+        model : "Clients",
         key : "code"
     },
     },
     refAgence:{
         type: DataTypes.INTEGER,
         references : {
-            model : "entreprises",
+            model : "Entreprises",
             key : "code"
         },
     },
-    timestamp: true,
+
   });
   return EnteteFacture;
 };

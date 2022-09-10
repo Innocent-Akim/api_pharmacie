@@ -12,7 +12,7 @@ export default (sequelize, DataTypes) => {
     codeProduit: {
       type: DataTypes.INTEGER,
       references : {
-        model : "produits",
+        model : "Produits",
         key : "code"
     },
     },

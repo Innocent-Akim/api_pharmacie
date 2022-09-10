@@ -20,14 +20,14 @@ export default (sequelize, DataTypes) => {
     codeAgent: {
       type: DataTypes.INTEGER,
       references : {
-        model : "agents",
+        model : "Agents",
         key : "code"
     },
     },
     codeAgence:{
         type: DataTypes.INTEGER,
         references : {
-          model : "entreprises",
+          model : "Entreprises",
           key : "code"
       },
     },

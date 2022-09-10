@@ -17,7 +17,7 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: "produits",
+        model: "EnteteFactures",
         key: "code",
       },
     },
@@ -25,11 +25,11 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: "produits",
+        model: "Produits",
         key: "code",
       },
     },
-    timestamp: true,
+  
   });
   return Facture;
 };

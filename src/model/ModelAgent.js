@@ -3,7 +3,6 @@ export default (sequelize, DataTypes) => {
     code: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      allowNull: true,
       autoIncrement: true,
     },
     nom: {
@@ -14,10 +13,10 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
     refAgence: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: "entreprises",
+        model: "Entreprises",
         key: "code",
       },
     },

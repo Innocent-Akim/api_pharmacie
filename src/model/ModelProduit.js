@@ -15,9 +15,9 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.FLOAT,
     },
     refAgence: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       references : {
-        model : "entreprises",
+        model : "Entreprises",
         key : "code"
     },
     },

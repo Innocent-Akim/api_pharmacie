@@ -20,19 +20,19 @@ export default (sequelize, DataTypes) => {
     },
     dateExpiration: {
       type: DataTypes.DATE,
-      defaultValue: Date.now(),
+      defaultValue:DataTypes.NOW,
     },
     codeEnteteFournir: {
       type: DataTypes.INTEGER,
       references: {
-        model: "enteteFournirs",
+        model: "EnteteFournirs",
         key: "code",
       },
     },
     codeProduit: {
       type: DataTypes.INTEGER,
       references: {
-        model: "produits",
+        model: "Produits",
         key: "code",
       },
     },

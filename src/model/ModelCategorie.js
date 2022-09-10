@@ -1,23 +1,22 @@
 export default (sequelize, DataTypes) => {
-  const Categorie = sequelize.define("categories", {
+  const Categorie = sequelize.define("Categories", {
     code: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false,
+      autoIncrement: true,
     },
     designation: {
       type: DataTypes.STRING,
       allowNull: true,
     },
     refAgence: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      references : {
-        model : "entreprises",
-        key : "code"
+      type: DataTypes.INTEGER,
+      references: {
+        model: "Entreprises",
+        key: "code",
+      },
     },
-    },
-    timestamp: true,
   });
   return Categorie;
 };

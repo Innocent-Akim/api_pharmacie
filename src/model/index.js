@@ -7,7 +7,7 @@ import categorie from "./ModelCategorie.js";
 import detailFournir from "./ModelDetailFournir.js";
 import enteteFournir from "./ModelEnteteFournir.js";
 import enteteFacture from "./ModelEnteteFacture.js";
-import detailFacture from "./ModelFacture.js";
+import detailFacture from "./ModelDetailFacture.js";
 import entreprises from "./Modelentreprise.js";
 import fournisseur from "./ModelFournisseur.js";
 import operations from "./ModelOperation.js";

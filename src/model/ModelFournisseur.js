@@ -1,7 +1,7 @@
 export default (sequelize, DataTypes) => {
   const Fournisseur = sequelize.define("Fournisseur", {
     code: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
@@ -15,7 +15,7 @@ export default (sequelize, DataTypes) => {
     codeAgence: {
       type: DataTypes.INTEGER,
       references : {
-        model : "entreprises",
+        model : "Entreprises",
         key : "code"
     },
     },

@@ -16,4 +16,7 @@ router.patch("/agent/update/:id", controller.agent.updateAgent);
 router.get("/agent/find/:refAgence", controller.agent.findAgent);
 router.delete("/agent/delete/:code", controller.agent.deleteAgent);
 
+router.post("/user/add", controller.user.addUser);
+router.post("/user/auth", controller.user.authenticate);
+
 export default router;

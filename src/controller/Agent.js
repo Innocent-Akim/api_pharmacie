@@ -35,7 +35,10 @@ items.updateAgent = async (req, res, next) => {
 items.findAgent= async (req, res, next) => {
   try{
     const refAgence=req.params.refAgence;
-    const  response = await agent.findAll({where:{refAgence:refAgence}});
+    const  response = await agent.findAll({ include: {
+        model:db.entreprise,
+        required: true
+    } });
     if(response){
       return res.status(200).json({ msg: `Liste Agents`, data: response  });
     }else{

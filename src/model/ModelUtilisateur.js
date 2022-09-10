@@ -15,17 +15,10 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
-    refAgence: {
-      type: DataTypes.INTEGER,
-      references : {
-        model : "entreprises",
-        key : "code"
-    },
-    },
     codeAgent: {
       type: DataTypes.INTEGER,
       references : {
-        model : "agents",
+        model : "Agents",
         key : "code"
     },
     },

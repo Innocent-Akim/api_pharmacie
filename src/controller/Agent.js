@@ -1,11 +1,11 @@
 import db from "../instance/Instance.js";
-const entreprises = db.entreprise;
+const agent = db.agents;
 const items = {};
 
-items.addEntreprise = async (req, res, next) => {
+items.addAgent = async (req, res, next) => {
   try {
-    const { nom, rccm, idImpot, telephone, email } = req.body;
-    const reponse = await entreprises.create(req.body);
+    const { nom,  telephone, refAgence } = req.body;
+    const reponse = await agent.create(req.body);
     if (reponse) {
       return res
         .status(200)
@@ -17,11 +17,11 @@ items.addEntreprise = async (req, res, next) => {
     return res.status(404).json({ msg: `Error ${error}`, data: {} });
   }
 };
-items.updateEntreprise = async (req, res, next) => {
+items.updateAgent = async (req, res, next) => {
   try {
     const code=req.params.id;
-    const { nom, rccm, idImpot, telephone, email } = req.body;
-    const response=await entreprises.update({ nom, rccm, idImpot, telephone, email },{where:{code:code}}, );
+    const { nom,  telephone, refAgence } = req.body;
+    const response=await agent.update({ nom, telephone, refAgence},{where:{code:code}}, );
     if(response){
       return res.status(200).json({ msg: `Modification avec succes`, data: response  });
     }else{
@@ -32,22 +32,23 @@ items.updateEntreprise = async (req, res, next) => {
   }
 };
 
-items.findEntreprise= async (req, res, next) => {
+items.findAgent= async (req, res, next) => {
   try{
-    const  response = await entreprises.findAll();
+    const refAgence=req.params.refAgence;
+    const  response = await agent.findAll({where:{refAgence:refAgence}});
     if(response){
-      return res.status(200).json({ msg: `Liste entreprises`, data: response  });
+      return res.status(200).json({ msg: `Liste Agents`, data: response  });
     }else{
-      return res.status(404).json({ msg: `Liste entreprises empty`, data: {}   });
+      return res.status(404).json({ msg: `Liste Agents empty`, data: {}   });
     }
   }catch (error) {
     return res.status(505).json({ msg: `${error}`, data: {}   });
   }
 }
-items.deleteEntreprise= async (req, res, next) => {
+items.deleteAgent= async (req, res, next) => {
   try{
     const code=req.params.code;
-    const  response = await entreprises.destroy({where:{code:code}});
+    const  response = await agent.destroy({where:{code:code}});
     if(response){
       return res.status(200).json({ msg: `Suppression reussi avec succes`, data: response  });
     }else{

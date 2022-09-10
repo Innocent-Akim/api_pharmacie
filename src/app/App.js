@@ -3,14 +3,14 @@ import dotenv from "dotenv";
 import cors from "cors";
 import morgan from "morgan";
 import db from "../instance/Instance.js";
-
+import router from "../route/appRoute.js"
 dotenv.config();
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan("combined"));
 app.use(cors());
-
+app.use('/api/v1', router)
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(

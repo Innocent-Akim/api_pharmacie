@@ -15,4 +15,5 @@ export default {
       idle: 10000,
     },
   },
+  
 };

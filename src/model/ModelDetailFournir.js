@@ -22,21 +22,19 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.DATE,
       defaultValue: Date.now(),
     },
-    codeEnteteFournir:{
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        references : {
-          model : "enteteFournirs",
-          key : "code"
+    codeEnteteFournir: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "enteteFournirs",
+        key: "code",
       },
     },
     codeProduit: {
       type: DataTypes.INTEGER,
-      allowNull: true,
-      references : {
-        model : "produits",
-        key : "code"
-    },
+      references: {
+        model: "produits",
+        key: "code",
+      },
     },
   });
   return DetailFournir;

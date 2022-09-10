@@ -6,7 +6,6 @@ const items = {};
 items.addUser = async (req, res, next) => {
   try {
     const { username, password, codeAgent } = req.body;
-
     const reponse = await user.create({
       username: username,
       password: await init.modul.initHash(password),
@@ -23,6 +22,7 @@ items.addUser = async (req, res, next) => {
     return res.status(404).json({ msg: `Error ${error} `, data: {} });
   }
 };
+
 items.authenticate = async (req, res, next) => {
   try {
     const { username, password } = req.body;
@@ -32,6 +32,7 @@ items.authenticate = async (req, res, next) => {
         .status(404)
         .json({ msg: `Le nom d'utilisateur n'existe pas`, data: {} });
     }
+    
     const conx = await init.modul.initCompare(password, data.password);
     if (conx) {
       return res.status(200).json({
@@ -94,7 +95,7 @@ items.deleteUser = async (req, res, next) => {
     if (response) {
       return res
         .status(200)
-        .json({ msg: ` Suppression reussi avec succes`, data: response });
+        .json({ msg: `Suppression reussi avec succes`, data: response });
     } else {
       return res.status(404).json({ msg: ` Suppression echoue`, data: {} });
     }

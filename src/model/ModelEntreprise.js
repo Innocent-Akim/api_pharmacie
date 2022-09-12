@@ -40,7 +40,7 @@ export default (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
     },
-    url: {
+    imageUrl: {
       type: DataTypes.STRING,
     },
   })

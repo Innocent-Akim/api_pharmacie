@@ -1,12 +1,15 @@
 import db from "../instance/Instance.js";
+import dotenv from "dotenv";
+dotenv.config();
+
 const entreprises = db.entreprise;
 const items = {};
 
 items.addEntreprise = async (req, res, next) => {
   try {
-  const imageUrl=`${req.protocol}://${req.host}:${req.port}`;
-    const { nom, rccm, idImpot, telephone, email,url } = req.body;
-    const reponse = await entreprises.create(req.body);
+  const imageUrl=process.env.URL_IMG;
+    const { nom, rccm, idImpot, telephone, email } = req.body;
+    const reponse = await entreprises.create({nom, rccm, idImpot, telephone, email,imageUrl});
     if (reponse) {
       return res
         .status(200)

@@ -29,12 +29,8 @@ app.use((req, res, next) => {
   next();
 });
 const port = process.env.PORT || 3000;
-
-// app.use('/src', express.static('src'));
 app.use('/api/v1', router)
 
 
-router.get("/", (req, res, next) => {
-  return res.status(200).json(`${req.protocol}://${req.get('host')}/images/`);
-});
+
 app.listen(port, () => console.log(`listening on ${port}`));

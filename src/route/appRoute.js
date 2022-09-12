@@ -2,7 +2,9 @@ import express from "express";
 import controller from "../controller/index.js";
 import init from "../module/index.js"
 const router = express.Router();
-
+router.get("/", (req, res, next) => {
+  return res.status(200).json(`${req.protocol}://${req.get('host')}/images/`);
+});
 router.post("/entreprise/add", init.modul.verifyToken,controller.entreprise.addEntreprise);
 router.patch("/entreprise/update/:id", init.modul.verifyToken,controller.entreprise.updateEntreprise);
 router.get("/entreprise/find", init.modul.verifyToken,controller.entreprise.findEntreprise);

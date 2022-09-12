@@ -1,22 +1,19 @@
 import express from "express";
 import controller from "../controller/index.js";
+import init from "../module/index.js"
 const router = express.Router();
 
-router.get("/", (req, res, next) => {
-  return res.status(200).json(`${req.protocol}://${req.get("host")}`);
-});
+router.post("/entreprise/add", init.modul.verifyToken,controller.entreprise.addEntreprise);
+router.patch("/entreprise/update/:id", init.modul.verifyToken,controller.entreprise.updateEntreprise);
+router.get("/entreprise/find", init.modul.verifyToken,controller.entreprise.findEntreprise);
+router.delete("/entreprise/delete/:code",init.modul.verifyToken,controller.entreprise.deleteEntreprise);
 
-router.post("/entreprise/add", controller.entreprise.addEntreprise);
-router.patch("/entreprise/update/:id", controller.entreprise.updateEntreprise);
-router.get("/entreprise/find", controller.entreprise.findEntreprise);
-router.delete("/entreprise/delete/:code",controller.entreprise.deleteEntreprise);
+router.post("/agent/add", init.modul.verifyToken,controller.agent.addAgent);
+router.patch("/agent/update/:id",init.modul.verifyToken, controller.agent.updateAgent);
+router.get("/agent/find/:refAgence",init.modul.verifyToken, controller.agent.findAgent);
+router.delete("/agent/delete/:code", init.modul.verifyToken,controller.agent.deleteAgent);
 
-router.post("/agent/add", controller.agent.addAgent);
-router.patch("/agent/update/:id", controller.agent.updateAgent);
-router.get("/agent/find/:refAgence", controller.agent.findAgent);
-router.delete("/agent/delete/:code", controller.agent.deleteAgent);
-
-router.post("/user/add", controller.user.addUser);
+router.post("/user/add",init.modul.verifyToken, controller.user.addUser);
 router.post("/user/auth", controller.user.authenticate);
 
 export default router;

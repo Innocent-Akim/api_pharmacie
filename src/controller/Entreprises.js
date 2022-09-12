@@ -4,7 +4,8 @@ const items = {};
 
 items.addEntreprise = async (req, res, next) => {
   try {
-    const { nom, rccm, idImpot, telephone, email } = req.body;
+  const imageUrl=`${req.protocol}://${req.host}:${req.port}`;
+    const { nom, rccm, idImpot, telephone, email,url } = req.body;
     const reponse = await entreprises.create(req.body);
     if (reponse) {
       return res

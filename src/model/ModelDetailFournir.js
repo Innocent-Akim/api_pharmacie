@@ -20,7 +20,12 @@ export default (sequelize, DataTypes) => {
     },
     dateExpiration: {
       type: DataTypes.DATE,
-      defaultValue:DataTypes.NOW,
+      defaultValue: DataTypes.NOW,
+    },
+    deleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+   
     },
     codeEnteteFournir: {
       type: DataTypes.INTEGER,

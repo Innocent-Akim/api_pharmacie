@@ -11,10 +11,14 @@ export default (sequelize, DataTypes) => {
     },
     codeProduit: {
       type: DataTypes.INTEGER,
-      references : {
-        model : "Produits",
-        key : "code"
+      references: {
+        model: "Produits",
+        key: "code",
+      },
     },
+    deleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
     },
   });
   return Stocks;

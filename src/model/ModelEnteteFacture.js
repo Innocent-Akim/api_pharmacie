@@ -4,34 +4,37 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
-    montant:{
-        type: DataTypes.FLOAT,
-        defaultValue:0
+    montant: {
+      type: DataTypes.FLOAT,
+      defaultValue: 0,
     },
     codeAgent: {
       type: DataTypes.INTEGER,
-      references : {
-        model : "Agents",
-        key : "code"
-    },
+      references: {
+        model: "Agents",
+        key: "code",
+      },
     },
     codeClient: {
       type: DataTypes.INTEGER,
-      references : {
-        model : "Clients",
-        key : "code"
+      references: {
+        model: "Clients",
+        key: "code",
+      },
     },
+    deleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
     },
-    refAgence:{
-        type: DataTypes.INTEGER,
-        references : {
-            model : "Entreprises",
-            key : "code"
-        },
+    refAgence: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "Entreprises",
+        key: "code",
+      },
     },
-
   });
   return EnteteFacture;
 };

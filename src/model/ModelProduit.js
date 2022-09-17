@@ -16,10 +16,14 @@ export default (sequelize, DataTypes) => {
     },
     refAgence: {
       type: DataTypes.INTEGER,
-      references : {
-        model : "Entreprises",
-        key : "code"
+      references: {
+        model: "Entreprises",
+        key: "code",
+      },
     },
+    deleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
     },
   });
   return Produit;

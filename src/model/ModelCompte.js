@@ -12,21 +12,25 @@ export default (sequelize, DataTypes) => {
     numero: {
       type: DataTypes.STRING,
     },
-    codeCatecompte:{
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references : {
-          model : "cateComptes",
-          key : "code"
+    deleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+    },
+    codeCatecompte: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "cateComptes",
+        key: "code",
       },
     },
     refAgence: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references : {
-        model : "Entreprises",
-        key : "code"
-    }, 
+      references: {
+        model: "Entreprises",
+        key: "code",
+      },
     },
   });
   return Comptes;

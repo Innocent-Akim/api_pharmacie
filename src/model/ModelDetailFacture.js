@@ -21,6 +21,10 @@ export default (sequelize, DataTypes) => {
         key: "code",
       },
     },
+    deleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+    },
     codeProduit: {
       type: DataTypes.INTEGER,
       allowNull: true,
@@ -29,7 +33,6 @@ export default (sequelize, DataTypes) => {
         key: "code",
       },
     },
-  
   });
   return Facture;
 };

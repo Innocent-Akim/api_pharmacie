@@ -12,13 +12,17 @@ export default (sequelize, DataTypes) => {
     telephone: {
       type: DataTypes.STRING,
     },
+    deleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+    },
     refAgence: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      references : {
-        model : "Entreprises",
-        key : "code"
-    },
+      references: {
+        model: "Entreprises",
+        key: "code",
+      },
     },
   });
   return Client;

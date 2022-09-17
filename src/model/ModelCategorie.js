@@ -10,6 +10,10 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true,
     },
+    deleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+    },
     refAgence: {
       type: DataTypes.INTEGER,
       references: {

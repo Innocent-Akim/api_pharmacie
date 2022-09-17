@@ -19,7 +19,9 @@ items.initGene = async (id, username) => {
 
   return token;
 };
-
+items.getUrl = (req, res) => {
+  return `${req.protocol}://${req.get("host")}/images/${req.file.filename}`;
+};
 items.verifyToken = (req, res, next) => {
   const autoHead = req.headers.authorization;
   if (autoHead) {

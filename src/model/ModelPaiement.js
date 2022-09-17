@@ -11,10 +11,14 @@ export default (sequelize, DataTypes) => {
     },
     codeFacture: {
       type: DataTypes.INTEGER,
-      references : {
-        model : "EnteteFactures",
-        key : "code"
+      references: {
+        model: "EnteteFactures",
+        key: "code",
+      },
     },
+    deleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
     },
   });
   return Paiement;

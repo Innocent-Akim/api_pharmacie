@@ -17,10 +17,14 @@ export default (sequelize, DataTypes) => {
     },
     codeAgent: {
       type: DataTypes.INTEGER,
-      references : {
-        model : "Agents",
-        key : "code"
+      references: {
+        model: "Agents",
+        key: "code",
+      },
     },
+    deleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
     },
   });
   return Utilisateurs;

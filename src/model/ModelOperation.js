@@ -19,17 +19,21 @@ export default (sequelize, DataTypes) => {
     },
     codeAgent: {
       type: DataTypes.INTEGER,
-      references : {
-        model : "Agents",
-        key : "code"
-    },
-    },
-    codeAgence:{
-        type: DataTypes.INTEGER,
-        references : {
-          model : "Entreprises",
-          key : "code"
+      references: {
+        model: "Agents",
+        key: "code",
       },
+    },
+    codeAgence: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "Entreprises",
+        key: "code",
+      },
+    },
+    deleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
     },
   });
   return Operations;

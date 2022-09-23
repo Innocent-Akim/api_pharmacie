@@ -13,7 +13,7 @@ export default (sequelize, DataTypes) => {
     codeAgent: {
       type: DataTypes.INTEGER,
       references: {
-        model: "Agents",
+        model: "Utilisateurs",
         key: "code",
       },
     },

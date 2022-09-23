@@ -14,6 +14,13 @@ export default (sequelize, DataTypes) => {
     qtealert: {
       type: DataTypes.FLOAT,
     },
+    codeCategorie: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "Categories",
+        key: "code",
+      },
+    },
     refAgence: {
       type: DataTypes.INTEGER,
       references: {

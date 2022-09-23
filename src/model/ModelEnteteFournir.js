@@ -1,29 +1,29 @@
 export default (sequelize, DataTypes) => {
-    const EnteteFournir = sequelize.define("EnteteFournir", {
-      code: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
+  const EnteteFournir = sequelize.define("EnteteFournir", {
+    code: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    codeFournisseur: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "Fournisseurs",
+        key: "code",
       },
-      deleted: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: true,
+    },
+    refAgence: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: "Entreprises",
+        key: "code",
       },
-      codeFournisseur: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: "fournisseurs",
-          key: "code",
-        },
-      },
-      refAgence: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        references: {
-          model: "Entreprises",
-          key: "code",
-        },
-      },
-    });
-    return EnteteFournir;
+    },
+    deleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+    },
+  });
+  return EnteteFournir;
 };

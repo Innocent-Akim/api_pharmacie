@@ -1,21 +1,12 @@
 import db from "../instance/Instance.js";
-import dotenv from "dotenv";
-dotenv.config();
+const client = db.clients;
 
-const produit = db.produits;
 const items = {};
 
-items.addProduit = async (req, res, next) => {
+items.addclient = async (req, res, next) => {
   try {
-    const { designation, pu, qtealert, refAgence, codeCategorie,unite } = req.body;
-    const reponse = await produit.create({
-      designation: designation,
-      pu: pu,
-      qtealert: qtealert,
-      codeCategorie: codeCategorie,
-      unite: unite,
-      refAgence: refAgence,
-    });
+    const { nom, telephone, refAgence } = req.body;
+    const reponse = await client.create({ nom, telephone, refAgence });
     if (reponse) {
       return res
         .status(200)
@@ -27,19 +18,13 @@ items.addProduit = async (req, res, next) => {
     return res.status(404).json({ msg: `Error ${error}`, data: {} });
   }
 };
-items.updateProduit = async (req, res, next) => {
+
+items.updateclient = async (req, res, next) => {
   try {
     const code = req.params.id;
-    const { designation, pu, qtealert, refAgence } = req.body;
-
-
-    const response = await produit.update(
-      {
-        designation: designation,
-        pu: pu,
-        qtealert: qtealert,
-        refAgence: refAgence,
-      },
+    const { nom, telephone, refAgence } = req.body;
+    const response = await client.update(
+      { nom, telephone, refAgence },
       { where: { code: code } }
     );
     if (response) {
@@ -54,27 +39,28 @@ items.updateProduit = async (req, res, next) => {
   }
 };
 
-items.findProduit = async (req, res, next) => {
+items.findclient = async (req, res, next) => {
   try {
     const refAgence = req.params.refAgence;
-    const response = await produit.findAll({
+    const response = await client.findAll({
       where: { deleted: true, refAgence: refAgence },
     });
     if (response) {
-      return res.status(200).json({ msg: `Liste produit`, data: response });
+      return res.status(200).json({ msg: `Liste clients`, data: response });
     } else {
-      return res.status(404).json({ msg: `Liste produit empty`, data: {} });
+      return res.status(404).json({ msg: `Liste clients empty`, data: {} });
     }
   } catch (error) {
     return res.status(505).json({ msg: `${error}`, data: {} });
   }
 };
-items.deleteProduit = async (req, res, next) => {
+
+items.deleteclient = async (req, res, next) => {
   try {
     const code = req.params.code;
-    const response = await produit.update(
-      { deleted: 0 },
-      { where: { code: code,deleted:false } }
+    const response = await client.update(
+      { deleted: false },
+      { where: { code: code } }
     );
     if (response) {
       return res

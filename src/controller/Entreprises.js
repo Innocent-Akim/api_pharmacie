@@ -9,7 +9,9 @@ const items = {};
 
 items.addEntreprise = async (req, res, next) => {
   try {
-    const imageUrl = modle.getUrl(req, res, next);
+    const imageUrl = `${req.protocol}://${req.get("host")}/images/${
+      req.file.filename
+    }`;
     const { nom, rccm, idImpot, telephone, email } = req.body;
     const reponse = await entreprises.create({
       nom,

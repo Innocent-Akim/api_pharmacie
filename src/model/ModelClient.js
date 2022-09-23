@@ -18,12 +18,11 @@ export default (sequelize, DataTypes) => {
     },
     refAgence: {
       type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: "Entreprises",
-        key: "code",
-      },
     },
+    
   });
+   Client.associate = (models) => {
+     Client.belongsTo(models.Entreprises, { foreignKey: "refAgence" });
+   };
   return Client;
 };

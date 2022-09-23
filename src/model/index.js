@@ -15,10 +15,14 @@ import paiement from "./ModelPaiement.js";
 import produit from "./ModelProduit.js";
 import stock from "./ModelStock.js";
 import taux from "./ModelTaux.js";
+import genereRef from "./ModelGenere.js";
+// import tache from "./ModelTache.js";
 export default {
+  entreprises,
   agent,
   client,
   user,
+  genereRef,
   compte,
   cateCompte,
   categorie,
@@ -26,11 +30,11 @@ export default {
   detailFournir,
   enteteFacture,
   enteteFournir,
-  entreprises,
   fournisseur,
   operations,
   paiement,
   produit,
   stock,
   taux,
+
 };

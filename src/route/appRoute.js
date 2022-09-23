@@ -5,8 +5,7 @@ import init from "../module/index.js";
 const router = express.Router();
 router.post(
   "/entreprise/add",
-  init.modul.verifyToken,
-  init.modul.verifyToken,
+
   init.itemsMulter.update.single("img"),
   controller.entreprise.addEntreprise
 );
@@ -68,4 +67,67 @@ router.delete(
   controller.produit.deleteProduit
 );
 
+
+router.get(
+  "/client/find/:refAgence",
+  init.modul.verifyToken,
+  controller.client.findclient
+);
+router.post(
+  "/client/add",
+  init.modul.verifyToken,
+  controller.client.addclient
+);
+router.patch(
+  "/client/update/:id",
+  init.modul.verifyToken,
+  controller.client.updateclient
+);
+router.delete(
+  "/client/delete/:code",
+  init.modul.verifyToken,
+  controller.client.deleteclient
+);
+
+
+router.post("/stock/add", init.modul.verifyToken, controller.Stock.addstock);
+
+router.post(
+  "/categorie/add",
+  init.modul.verifyToken,
+  controller.Categorie.addcategorie
+);
+router.patch(
+  "/categorie/update/:code",
+  init.modul.verifyToken,
+  controller.Categorie.updatecategorie
+);
+router.get(
+  "/categorie/find/:refAgence",
+  init.modul.verifyToken,
+  controller.Categorie.findcategorie
+);
+router.delete(
+  "/categorie/delete/:code",
+  init.modul.verifyToken,
+  controller.Categorie.deletecategorie
+);
+
+router.post(
+  `/approvisionnement/add`,
+  controller.approvisionnement.addAprovisionne
+);
+router.post(`/fournisseur/add`, controller.fournisseurs.addfournisseur);
+router.patch(
+  `/fournisseur/update/:code`,
+  controller.fournisseurs.updatefournisseur
+);
+router.delete(
+  `/fournisseur/delete/:code`,
+  controller.fournisseurs.deletefournisseur
+);
+router.get(
+  `/fournisseur/find/:refAgence`,
+  controller.fournisseurs.findfournisseur
+);
 export default router;

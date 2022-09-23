@@ -32,5 +32,9 @@ export default (sequelize, DataTypes) => {
       defaultValue: true,
     },
   });
+    Entreprises.associate = (models) => {
+      // associations can be defined here
+      Entreprises.hasOne(models.Client, { foreignKey: "refAgence" });
+    };
   return Entreprises
 }

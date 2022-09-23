@@ -36,7 +36,7 @@ items.verifyToken = (req, res, next) => {
       next();
     });
   } else {
-    res
+    return res
       .status(401)
       .json({ msg: `Your not authentificated`, data: {}, token: "NO" });
   }

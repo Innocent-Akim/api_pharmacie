@@ -1,25 +1,21 @@
 import db from "../instance/Instance.js";
 import dotenv from "dotenv";
 dotenv.config();
-
-const produit = db.produits;
+const fournisseur = db.fournisseurs;
 const items = {};
 
-items.addProduit = async (req, res, next) => {
+items.addfournisseur = async (req, res, next) => {
   try {
-    const { designation, pu, qtealert, refAgence, codeCategorie,unite } = req.body;
-    const reponse = await produit.create({
-      designation: designation,
-      pu: pu,
-      qtealert: qtealert,
-      codeCategorie: codeCategorie,
-      unite: unite,
-      refAgence: refAgence,
+    const { nom, telephone, codeAgence } = req.body;
+    const reponse = await fournisseur.create({
+      nom: nom,
+      telephone: telephone,
+      codeAgence: codeAgence,
     });
     if (reponse) {
       return res
         .status(200)
-        .json({ msg: `Enregistrement reussi avec succes`, data: reponse });
+        .json({ msg: `Enregistrement réussi avec succès`, data: reponse });
     } else {
       return res.status(404).json({ msg: `Enregistrement echoue`, data: {} });
     }
@@ -27,18 +23,15 @@ items.addProduit = async (req, res, next) => {
     return res.status(404).json({ msg: `Error ${error}`, data: {} });
   }
 };
-items.updateProduit = async (req, res, next) => {
+items.updatefournisseur = async (req, res, next) => {
   try {
-    const code = req.params.id;
-    const { designation, pu, qtealert, refAgence } = req.body;
-
-
-    const response = await produit.update(
+    const code = req.params.code;
+    const { nom, telephone, codeAgence } = req.body;
+    const response = await fournisseur.update(
       {
-        designation: designation,
-        pu: pu,
-        qtealert: qtealert,
-        refAgence: refAgence,
+        nom: nom,
+        telephone: telephone,
+        codeAgence: codeAgence,
       },
       { where: { code: code } }
     );
@@ -54,27 +47,27 @@ items.updateProduit = async (req, res, next) => {
   }
 };
 
-items.findProduit = async (req, res, next) => {
+items.findfournisseur = async (req, res, next) => {
   try {
     const refAgence = req.params.refAgence;
-    const response = await produit.findAll({
+    const response = await fournisseur.findAll({
       where: { deleted: true, refAgence: refAgence },
     });
     if (response) {
-      return res.status(200).json({ msg: `Liste produit`, data: response });
+      return res.status(200).json({ msg: `Liste fournisseur`, data: response });
     } else {
-      return res.status(404).json({ msg: `Liste produit empty`, data: {} });
+      return res.status(404).json({ msg: `Liste fournisseur empty`, data: {} });
     }
   } catch (error) {
     return res.status(505).json({ msg: `${error}`, data: {} });
   }
 };
-items.deleteProduit = async (req, res, next) => {
+items.deletefournisseur = async (req, res, next) => {
   try {
     const code = req.params.code;
-    const response = await produit.update(
-      { deleted: 0 },
-      { where: { code: code,deleted:false } }
+    const response = await fournisseur.update(
+      { deleted: false },
+      { where: { code: code } }
     );
     if (response) {
       return res
